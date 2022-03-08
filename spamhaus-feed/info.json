@@ -1,0 +1,209 @@
+{
+  "name": "spamhaus-feed",
+  "version": "1.0.0",
+  "label": "Spamhaus Feed",
+  "category": "Threat Intelligence",
+  "description": "Fetch indicators from the feed.",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "help_online": "",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "tags": [
+    "threatintel-inbound"
+  ],
+  "ingestion_supported": true,
+  "ingestion_modes": [
+    "scheduled"
+  ],
+  "ingestion_preferences": {
+    "modules": [
+      "threat_intel_feeds"
+    ]
+  },
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "description": "URL of the Spamhaus server to which you will connect and perform automated operations.",
+        "type": "text",
+        "visible": true,
+        "editable": true,
+        "required": true,
+        "placeholder": "https://api.spamhaus.org",
+        "value": "https://api.spamhaus.org"
+      },
+      {
+        "title": "Username",
+        "name": "username",
+        "description": "The username used to access the Spamhaus server to which you will connect and perform the automated operations.",
+        "type": "text",
+        "visible": true,
+        "editable": true,
+        "required": true,
+        "placeholder": "user@example.com"
+      },
+      {
+        "title": "Password",
+        "name": "password",
+        "description": "The Password used to access the Spamhaus server to which you will connect and perform the automated operations.",
+        "type": "password",
+        "visible": true,
+        "editable": true,
+        "required": true
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.\n By default, this option is set as True.",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "fetch_indicators",
+      "category": "investigation",
+      "annotation": "fetch_indicators",
+      "description": "Retrieves list of indicators from the Spamhaus feed based on the dataset, mode, ipaddress, and other input parameter you have specified.",
+      "title": "Fetch Indicators",
+      "parameters": [
+        {
+          "title": "DataSet",
+          "description": "Identifies the dataset where the search can be performed",
+          "type": "select",
+          "name": "dataset",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "XBL",
+            "CSS",
+            "BCL"
+          ]
+        },
+        {
+          "title": "Mode",
+          "description": "Search CIDR mode.",
+          "type": "select",
+          "name": "mode",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Listed",
+            "Listings"
+          ]
+        },
+        {
+          "title": "Type",
+          "description": "",
+          "type": "select",
+          "name": "type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "options": [
+            "Live",
+            "History"
+          ]
+        },
+        {
+          "title": "IP Address",
+          "description": "IP address to look for",
+          "type": "text",
+          "name": "ipaddress",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Process response as",
+          "name": "output_mode",
+          "visible": true,
+          "required": false,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Create as Feed Records in FortiSOAR",
+            "Return as a JSON"
+          ],
+          "value": "Return as a JSON",
+          "tooltip": "The Feed Data can either be returned as a JSON, or Created as Feed Records in FortiSOAR",
+          "description": "The Feed Data can either be returned as a JSON, or Created as Feed Records in FortiSOAR",
+          "onchange": {
+            "Create as Feed Records in FortiSOAR": [
+              {
+                "title": "Record Creation Playbook IRI",
+                "description": "",
+                "type": "text",
+                "name": "create_pb_id",
+                "required": false,
+                "editable": true,
+                "visible": true
+              }
+            ],
+            "Return as a JSON": []
+          }
+        },
+        {
+          "title": "Limit",
+          "description": "Maximum number of results, per page, that this operation should return. By default, this value is set as 10.",
+          "type": "text",
+          "name": "limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "tooltip": "Maximum number of results, per page, that this operation should return. By default, this value is set as 10.",
+          "value": 10
+        },
+        {
+          "title": "Start Time",
+          "name": "start_time",
+          "type": "datetime",
+          "description": "Starting datetime from when you want to retrieve indicators from Spamhaus Feed. Note: If the timezone information is not specified then the Spamhaus Feed timezone considered for retrieving the indicators.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Starting date time. Consider it as the Spamhaus timezone if the timezone info is not specified."
+        },
+        {
+          "title": "End Time",
+          "name": "end_time",
+          "type": "datetime",
+          "description": "Ending datetime till when you want to retrieve indicators from Spamhaus. Note: If the timezone information is not specified then the Spamhaus Feed timezone considered for retrieving the indicators.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Ending date time. Consider it as the Spamhaus timezone if the timezone info is not specified."
+        }
+      ],
+      "output_schema": [
+        {
+          "dataset": "",
+          "ipaddress": "",
+          "asn": "",
+          "cc": "",
+          "listed": "",
+          "seen": "",
+          "valid_until": "",
+          "botname": "",
+          "dstport": "",
+          "heuristic": "",
+          "lat": "",
+          "lon": "",
+          "protocol": "",
+          "rule": "",
+          "srcip": ""
+        }
+      ],
+      "enabled": true
+    }
+  ]
+}
