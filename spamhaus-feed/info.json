@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "label": "Spamhaus Feed",
   "category": "Threat Intelligence",
-  "description": "Fetch indicators from the feed.",
-  "publisher": "Community",
-  "cs_approved": false,
+  "description": "Spamhaus Feed provides access to expansive threat data and related information. This connector facilitates automated operations related to fetching the list of either current or historical listing information for a specific network block.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
   "cs_compatible": true,
   "help_online": "",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "tags": [
-    "threatintel-inbound"
+    "ThreatIntel"
   ],
   "ingestion_supported": true,
   "ingestion_modes": [

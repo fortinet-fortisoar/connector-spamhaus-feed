@@ -65,15 +65,18 @@ class SpamhausFeed(object):
             raise ConnectorError(str(err))
 
     def login(self, url, username, password):
-        try:
-            body = {
+        body = {
                 'username': username,
                 'password': password,
                 'realm': 'intel'
-            }
-            endpoint = url + 'api/v1/login'
+        }
+        endpoint = url + 'api/v1/login'
+        try:
             response = requests.post(endpoint, data=json.dumps(body))
-            return response.json().get('token')
+            if response:
+                return response.json().get('token')
+            else:
+                raise ConnectorError("Invalid endpoint or credentials")
         except Exception as err:
             logger.exception("{0}".format(str(err)))
             raise ConnectorError("{0}".format(str(err)))
@@ -140,8 +143,7 @@ def _check_health(config):
         sf = SpamhausFeed(config)
         return True
     except Exception as err:
-        logger.exception("{0}".format(str(err)))
-        raise ConnectorError("{0}".format(str(err)))
+        raise ConnectorError('Invalid URL or Credentials')
 
 
 operations = {
