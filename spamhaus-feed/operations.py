@@ -66,20 +66,16 @@ class SpamhausFeed(object):
 
     def login(self, url, username, password):
         body = {
-                'username': username,
-                'password': password,
-                'realm': 'intel'
+            'username': username,
+            'password': password,
+            'realm': 'intel'
         }
         endpoint = url + 'api/v1/login'
-        try:
-            response = requests.post(endpoint, data=json.dumps(body))
-            if response:
-                return response.json().get('token')
-            else:
-                raise ConnectorError("Invalid endpoint or credentials")
-        except Exception as err:
-            logger.exception("{0}".format(str(err)))
-            raise ConnectorError("{0}".format(str(err)))
+        response = requests.post(endpoint, data=json.dumps(body))
+        if response:
+            return response.json().get('token')
+        else:
+            raise ConnectorError("Invalid endpoint or credentials")
 
 
 def check_payload(payload):
@@ -121,18 +117,14 @@ def fetch_indicators(config, params, **kwargs):
         payload = check_payload(payload)
         response = sf.make_rest_call(endpoint, 'GET', params=payload)
         response = response.get('results')
-        try:
-            mode = params.get('output_mode')
-            if mode == 'Create as Feed Records in FortiSOAR':
-                create_pb_id = params.get("create_pb_id")
-                trigger_ingest_playbook(response, create_pb_id, parent_env=kwargs.get('env', {}),
-                                        batch_size=1000, dedup_field="pattern")
-                return {"message": "Succesfully triggered playbooks for creating feed records"}
-            else:
-                return response
-        except Exception as e:
-            logger.exception("Import Failed")
-            raise ConnectorError('Ingestion Failed with error: ' + str(e))
+        mode = params.get('output_mode')
+        if mode == 'Create as Feed Records in FortiSOAR':
+            create_pb_id = params.get("create_pb_id")
+            trigger_ingest_playbook(response, create_pb_id, parent_env=kwargs.get('env', {}),
+                                    batch_size=1000, dedup_field="pattern")
+            return {"message": "Succesfully triggered playbooks for creating feed records"}
+        else:
+            return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
         raise ConnectorError("{0}".format(str(err)))
