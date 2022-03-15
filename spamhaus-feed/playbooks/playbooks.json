@@ -6,13 +6,13 @@
       "name": "Sample - Spamhaus Feed - 1.0.0",
       "description": "Sample playbooks for \"Spamhaus Feed\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/0360073c-90ee-4d04-adb6-090dcdefbb4e",
+      "image": "/api/3/images/3cc4d069-220e-4e64-a03d-6cb79e32a1af",
       "uuid": "5a844bc8-91f4-4ac2-a7a1-dc3f976c9a57",
-      "id": 56,
+      "id": 74,
       "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "createDate": 1646378684.936351,
+      "createDate": 1647325838.869878,
       "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-      "modifyDate": 1646378684.936351,
+      "modifyDate": 1647325838.869878,
       "recordTags": [],
       "deletedAt": null,
       "workflows": [
@@ -143,24 +143,6 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> Configuration1",
-              "targetStep": "/api/3/workflow_steps/941011dd-1303-4b32-be9c-d9f091e9380a",
-              "sourceStep": "/api/3/workflow_steps/b3921c2f-bb6c-4963-ac1f-2bba0cb7345f",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "bfe54f22-3f62-4380-aad9-0b77424c66d6"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Extract Value from Response -> Fetch Indicators",
-              "targetStep": "/api/3/workflow_steps/283672d6-d7d6-4b9f-ade7-39be2cf53db7",
-              "sourceStep": "/api/3/workflow_steps/c80dd9f6-485c-4615-8e15-8704ed823667",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "8ab252f2-1736-4ad1-bb28-141ee23452be"
-            },
-            {
-              "@type": "WorkflowRoute",
               "name": "Fetch Indicators -> Update Pull Time",
               "targetStep": "/api/3/workflow_steps/4225e7dc-aee4-4fd8-ac56-0812a6e6ca99",
               "sourceStep": "/api/3/workflow_steps/283672d6-d7d6-4b9f-ade7-39be2cf53db7",
@@ -179,6 +161,24 @@
             },
             {
               "@type": "WorkflowRoute",
+              "name": "Extract Value from Response -> Fetch Indicators",
+              "targetStep": "/api/3/workflow_steps/283672d6-d7d6-4b9f-ade7-39be2cf53db7",
+              "sourceStep": "/api/3/workflow_steps/c80dd9f6-485c-4615-8e15-8704ed823667",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "8ab252f2-1736-4ad1-bb28-141ee23452be"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration1",
+              "targetStep": "/api/3/workflow_steps/941011dd-1303-4b32-be9c-d9f091e9380a",
+              "sourceStep": "/api/3/workflow_steps/b3921c2f-bb6c-4963-ac1f-2bba0cb7345f",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "bfe54f22-3f62-4380-aad9-0b77424c66d6"
+            },
+            {
+              "@type": "WorkflowRoute",
               "name": "Get Macro Value -> Extract Value from Response",
               "targetStep": "/api/3/workflow_steps/c80dd9f6-485c-4615-8e15-8704ed823667",
               "sourceStep": "/api/3/workflow_steps/3fc0b4b8-57b5-41e1-9755-87d5c276db55",
@@ -194,11 +194,11 @@
             "ingest",
             "spamhaus-feed"
           ],
-          "id": "603",
+          "id": "765",
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1646378684.938267,
-          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1646722688.661743,
+          "createDate": 1647325838.871517,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1647325838.871517,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null
@@ -218,7 +218,7 @@
             "lastPullTime"
           ],
           "synchronous": false,
-          "lastModifyDate": 1646734874,
+          "lastModifyDate": 1647325204,
           "collection": "/api/3/workflow_collections/5a844bc8-91f4-4ac2-a7a1-dc3f976c9a57",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/5c4ffe1a-1a62-43e2-b32e-e3a294a3438a",
@@ -238,7 +238,7 @@
                   {
                     "option": "No, For Ingestion",
                     "default": true,
-                    "step_iri": "/api/3/workflow_steps/7ed5010b-8cfc-4b06-8099-468d0dd9800d",
+                    "step_iri": "/api/3/workflow_steps/c372b649-2d62-4791-92a2-1091eaf89175",
                     "step_name": "Fetch Indicators"
                   }
                 ]
@@ -267,7 +267,7 @@
               "name": "Return Sample Data",
               "description": null,
               "arguments": {
-                "data": "[\n        {\n          \"dataset\": \"\",\n          \"ipaddress\": \"\",\n          \"asn\": \"\",\n          \"cc\": \"\",\n          \"listed\": \"\",\n          \"seen\": \"\",\n          \"valid_until\": \"\",\n          \"botname\": \"\",\n          \"dstport\": \"\",\n          \"heuristic\": \"\",\n          \"lat\": \"\",\n          \"lon\": \"\",\n          \"protocol\": \"\",\n          \"rule\": \"\",\n          \"srcip\": \"\"\n        }\n]"
+                "data": "[\n    {\n      \"ip\": \"5.188.11.0/24\",\n      \"type\": \"SBL402809\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"27.112.32.0/19\",\n      \"type\": \"SBL237955\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"43.57.0.0/16\",\n      \"type\": \"SBL271294\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"43.181.0.0/16\",\n      \"type\": \"SBL271295\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"45.91.227.0/24\",\n      \"type\": \"SBL508101\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"46.148.112.0/24\",\n      \"type\": \"SBL394634\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"46.148.120.0/24\",\n      \"type\": \"SBL394635\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"46.148.127.0/24\",\n      \"type\": \"SBL394636\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"58.2.0.0/17\",\n      \"type\": \"SBL249532\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"62.112.16.0/21\",\n      \"type\": \"SBL237227\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    },\n    {\n      \"ip\": \"76.74.36.0/24\",\n      \"type\": \"SBL505040\",\n      \"last_modified\": \"1647002859\",\n      \"expires\": \"1647408786\"\n    }\n]"
               },
               "status": null,
               "top": "570",
@@ -281,12 +281,7 @@
               "description": null,
               "arguments": {
                 "tlp": "White",
-                "mode": "Listed",
-                "type": "History",
-                "limit": "10",
-                "dataset": "XBL",
                 "tlp_map": "{'Red': {{'TrafficLightProtocol'| picklist('Red') }}, 'Amber': {{'TrafficLightProtocol'| picklist('Amber') }}, 'Green': {{'TrafficLightProtocol'| picklist('Green') }}, 'White': {{'TrafficLightProtocol'| picklist('White') }}}",
-                "ipaddress": "45.150.206.0/24",
                 "confidence": "50",
                 "reputation": "Suspicious",
                 "output_mode": "Return as a JSON",
@@ -311,7 +306,7 @@
                   "input": {
                     "params": []
                   },
-                  "_configuration_schema": "[\n   {\n      \"title\":\"DataSet\",\n      \"description\":\"Identifies the dataset where the search can be performed\",\n      \"type\":\"select\",\n      \"name\":\"dataset\",\n      \"required\":true,\n      \"editable\":true,\n      \"visible\":true,\n      \"options\":[\n         \"XBL\",\n         \"CSS\",\n         \"BCL\"\n      ]\n   },\n   {\n      \"title\":\"Mode\",\n      \"description\":\"Search CIDR mode.\",\n      \"type\":\"select\",\n      \"name\":\"mode\",\n      \"required\":true,\n      \"editable\":true,\n      \"visible\":true,\n      \"options\":[\n         \"Listed\",\n         \"Listings\"\n      ]\n   },\n   {\n      \"title\":\"Type\",\n      \"description\":\"\",\n      \"type\":\"select\",\n      \"name\":\"type\",\n      \"required\":true,\n      \"editable\":true,\n      \"visible\":true,\n      \"options\":[\n         \"Live\",\n         \"History\"\n      ]\n   },\n   {\n      \"title\":\"IP Address\",\n      \"description\":\"IP address to look for\",\n      \"type\":\"text\",\n      \"name\":\"ipaddress\",\n      \"required\":true,\n      \"editable\":true,\n      \"visible\":true\n   },\n   {\n      \"title\":\"Limit\",\n      \"description\":\"Maximum number of results, per page, that this operation should return. By default, this value is set as 10.\",\n      \"type\":\"text\",\n      \"name\":\"limit\",\n      \"required\":false,\n      \"editable\":true,\n      \"visible\":true,\n      \"tooltip\":\"Maximum number of results, per page, that this operation should return. By default, this value is set as 10.\",\n      \"value\":10\n   },\n   {\n      \"title\":\"Confidence\",\n      \"name\":\"confidence\",\n      \"type\":\"integer\",\n      \"tooltip\":\"Default Confidence score to be set for the feeds\",\n      \"required\":false,\n      \"editable\":true,\n      \"visible\":true,\n      \"value\":50,\n      \"validation\":{\n         \"minlength\":0,\n         \"maxlength\":100\n      }\n   },\n   {\n      \"title\":\"Reputation\",\n      \"name\":\"reputation\",\n      \"type\":\"select\",\n      \"tooltip\":\"Default Reputation to be set for the feeds\",\n      \"required\":true,\n      \"editable\":true,\n      \"visible\":true,\n      \"options\":[\n         \"Good\",\n         \"Suspicious\",\n         \"Malicious\",\n         \"No Reputation Available\",\n         \"TBD\"\n      ],\n      \"value\":\"Suspicious\"\n   },\n   {\n      \"title\":\"TLP\",\n      \"name\":\"tlp\",\n      \"type\":\"select\",\n      \"tooltip\":\"Default TLP to be set for the feeds\",\n      \"required\":false,\n      \"editable\":true,\n      \"visible\":true,\n      \"options\":[\n         \"Red\",\n         \"Amber\",\n         \"Green\",\n         \"White\"\n      ],\n      \"value\":\"White\"\n   }\n]",
+                  "_configuration_schema": "[\n   {\n      \"title\":\"Confidence\",\n      \"name\":\"confidence\",\n      \"type\":\"integer\",\n      \"tooltip\":\"Default Confidence score to be set for the feeds\",\n      \"required\":false,\n      \"editable\":true,\n      \"visible\":true,\n      \"value\":50,\n      \"validation\":{\n         \"minlength\":0,\n         \"maxlength\":100\n      }\n   },\n   {\n      \"title\":\"Reputation\",\n      \"name\":\"reputation\",\n      \"type\":\"select\",\n      \"tooltip\":\"Default Reputation to be set for the feeds\",\n      \"required\":true,\n      \"editable\":true,\n      \"visible\":true,\n      \"options\":[\n         \"Good\",\n         \"Suspicious\",\n         \"Malicious\",\n         \"No Reputation Available\",\n         \"TBD\"\n      ],\n      \"value\":\"Suspicious\"\n   },\n   {\n      \"title\":\"TLP\",\n      \"name\":\"tlp\",\n      \"type\":\"select\",\n      \"tooltip\":\"Default TLP to be set for the feeds\",\n      \"required\":false,\n      \"editable\":true,\n      \"visible\":true,\n      \"options\":[\n         \"Red\",\n         \"Amber\",\n         \"Green\",\n         \"White\"\n      ],\n      \"value\":\"White\"\n   }\n]",
                   "SpamhausLastAlertPullTime": "SpamhausLastAlertPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}"
                 }
               },
@@ -337,19 +332,25 @@
             },
             {
               "@type": "WorkflowStep",
+              "name": "Create Feed List",
+              "description": null,
+              "arguments": {
+                "fetched_data": "{{vars.steps.Fetch_Indicators.data}}"
+              },
+              "status": null,
+              "top": "705",
+              "left": "475",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "uuid": "c1e67669-0410-4eef-bf69-105938e00faa"
+            },
+            {
+              "@type": "WorkflowStep",
               "name": "Fetch Indicators",
               "description": null,
               "arguments": {
                 "name": "Spamhaus Feed",
                 "config": "",
                 "params": {
-                  "mode": "{{vars.mode}}",
-                  "type": "{{vars.type}}",
-                  "limit": "{{vars.limit}}",
-                  "dataset": "{{vars.dataset}}",
-                  "end_time": "{{vars.currentPullTime}}",
-                  "ipaddress": "{{vars.ipaddress}}",
-                  "start_time": "{{vars.input.params.lastPullTime}}",
                   "output_mode": "Return as a JSON"
                 },
                 "version": "1.0.0",
@@ -363,20 +364,7 @@
               "top": "570",
               "left": "475",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "uuid": "7ed5010b-8cfc-4b06-8099-468d0dd9800d"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Create Feed List",
-              "description": null,
-              "arguments": {
-                "fetched_data": "{{vars.steps.Fetch_Indicators.data}}"
-              },
-              "status": null,
-              "top": "705",
-              "left": "475",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "uuid": "c1e67669-0410-4eef-bf69-105938e00faa"
+              "uuid": "c372b649-2d62-4791-92a2-1091eaf89175"
             },
             {
               "@type": "WorkflowStep",
@@ -392,18 +380,18 @@
                 },
                 "resource": {
                   "tLP": "{% if vars.tlp %}{{ vars.tlp | resolveRange(vars.tlp_map)}}{% endif %}",
-                  "value": "{{vars.item.ipaddress}}",
+                  "value": "{{vars.item.ip}}",
                   "source": "Spamhaus Feed",
-                  "created": "{{vars.item.listed}}",
-                  "lastSeen": "{{vars.item.seen}}",
-                  "sourceId": "{{vars.item.ipaddress}}",
+                  "modified": "{{vars.item.last_modified}}",
+                  "sourceId": "{{vars.item.ip}}",
                   "__replace": "true",
+                  "expiresOn": "{{vars.item.expires}}",
                   "confidence": "{{vars.confidence}}",
                   "reputation": "{% if vars.reputation %}{{ vars.reputation | resolveRange(vars.reputation_map)}}{% endif %}",
                   "sourceData": "{{vars.item | toJSON}}",
                   "typeOfFeed": "/api/3/picklists/b788efc2-dadb-4448-9018-043b37266de4",
-                  "validUntil": "{{vars.item.valid_until}}",
-                  "description": "<p>{{vars.item.detection}}</p>"
+                  "validUntil": "{{vars.item.expires}}",
+                  "description": "<p>{{vars.item.type}}</p>"
                 },
                 "_showJson": false,
                 "operation": "Overwrite",
@@ -424,21 +412,12 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> Configuration",
-              "targetStep": "/api/3/workflow_steps/5626ec96-c74b-4e95-910d-26aa34d2ad25",
-              "sourceStep": "/api/3/workflow_steps/5c4ffe1a-1a62-43e2-b32e-e3a294a3438a",
+              "name": "Resolve Range -> Is data only for mapping",
+              "targetStep": "/api/3/workflow_steps/03793c20-27a1-4a6a-8553-59a8f3f72f3b",
+              "sourceStep": "/api/3/workflow_steps/67cea3d5-b10d-41f9-9dd5-d082b80719a7",
               "label": null,
               "isExecuted": false,
-              "uuid": "51f867dc-cf71-4505-a267-d068ba2e6530"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Create Feed List -> Create Record1",
-              "targetStep": "/api/3/workflow_steps/fdca1b75-a1d3-4c71-9d0b-81ab7ff9ca65",
-              "sourceStep": "/api/3/workflow_steps/c1e67669-0410-4eef-bf69-105938e00faa",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "26cf6d59-2c3c-4a5b-997b-17cf63ed9b25"
+              "uuid": "0053065e-bbe8-4de0-8cb2-26b8d1e03730"
             },
             {
               "@type": "WorkflowRoute",
@@ -451,6 +430,24 @@
             },
             {
               "@type": "WorkflowRoute",
+              "name": "Create Feed List -> Create Record1",
+              "targetStep": "/api/3/workflow_steps/fdca1b75-a1d3-4c71-9d0b-81ab7ff9ca65",
+              "sourceStep": "/api/3/workflow_steps/c1e67669-0410-4eef-bf69-105938e00faa",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "26cf6d59-2c3c-4a5b-997b-17cf63ed9b25"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/5626ec96-c74b-4e95-910d-26aa34d2ad25",
+              "sourceStep": "/api/3/workflow_steps/5c4ffe1a-1a62-43e2-b32e-e3a294a3438a",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "51f867dc-cf71-4505-a267-d068ba2e6530"
+            },
+            {
+              "@type": "WorkflowRoute",
               "name": "Configuration -> Resolve Range",
               "targetStep": "/api/3/workflow_steps/67cea3d5-b10d-41f9-9dd5-d082b80719a7",
               "sourceStep": "/api/3/workflow_steps/5626ec96-c74b-4e95-910d-26aa34d2ad25",
@@ -460,39 +457,30 @@
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Is data only for mapping -> Fetch Indicators",
-              "targetStep": "/api/3/workflow_steps/7ed5010b-8cfc-4b06-8099-468d0dd9800d",
-              "sourceStep": "/api/3/workflow_steps/03793c20-27a1-4a6a-8553-59a8f3f72f3b",
-              "label": "No, For Ingestion",
-              "isExecuted": false,
-              "uuid": "ba579bf3-825d-4a7f-83cb-8f3c4a3975e6"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Resolve Range -> Is data only for mapping",
-              "targetStep": "/api/3/workflow_steps/03793c20-27a1-4a6a-8553-59a8f3f72f3b",
-              "sourceStep": "/api/3/workflow_steps/67cea3d5-b10d-41f9-9dd5-d082b80719a7",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "0053065e-bbe8-4de0-8cb2-26b8d1e03730"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Fetch Indicators -> Create Feed List",
-              "targetStep": "/api/3/workflow_steps/c1e67669-0410-4eef-bf69-105938e00faa",
-              "sourceStep": "/api/3/workflow_steps/7ed5010b-8cfc-4b06-8099-468d0dd9800d",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "03e0e736-de8d-48bc-9f5d-eb25bcbc89c7"
-            },
-            {
-              "@type": "WorkflowRoute",
               "name": "Is data only for mapping -> Return Sample Data",
               "targetStep": "/api/3/workflow_steps/32971bbf-43be-46ec-b6a6-b308429c53c5",
               "sourceStep": "/api/3/workflow_steps/03793c20-27a1-4a6a-8553-59a8f3f72f3b",
               "label": "Yes, For Mapping",
               "isExecuted": false,
               "uuid": "7f57367a-d670-4dbe-b22a-899d13b2b229"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Is data only for mapping -> Fetch Indicators",
+              "targetStep": "/api/3/workflow_steps/c372b649-2d62-4791-92a2-1091eaf89175",
+              "sourceStep": "/api/3/workflow_steps/03793c20-27a1-4a6a-8553-59a8f3f72f3b",
+              "label": "No, For Ingestion",
+              "isExecuted": false,
+              "uuid": "e4484a3d-8028-4f68-b77f-d7e9dd846dee"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Fetch Indicators -> Create Feed List",
+              "targetStep": "/api/3/workflow_steps/c1e67669-0410-4eef-bf69-105938e00faa",
+              "sourceStep": "/api/3/workflow_steps/c372b649-2d62-4791-92a2-1091eaf89175",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ee9c5ba9-1c4c-44b4-9a4f-a5f0d985fba9"
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
@@ -503,11 +491,11 @@
             "fetch",
             "spamhaus-feed"
           ],
-          "id": "604",
+          "id": "766",
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1646378684.938567,
-          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1646734873.717732,
+          "createDate": 1647325838.87282,
+          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
+          "modifyDate": 1647325838.87282,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null
@@ -520,12 +508,12 @@
           "tag": "#spamhaus-feed",
           "description": "Retrieves list of indicators from the Spamhaus feed based on the dataset, mode, ipaddress, and other input parameter you have specified.",
           "isActive": false,
-          "debug": false,
+          "debug": true,
           "singleRecordExecution": false,
           "remoteExecutableFlag": true,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1643089999,
+          "lastModifyDate": 1647325993,
           "collection": "/api/3/workflow_collections/5a844bc8-91f4-4ac2-a7a1-dc3f976c9a57",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/55f579c2-4c5e-4cf4-ab99-d9e03b4f258a",
@@ -565,13 +553,7 @@
                 "name": "Spamhaus Feed",
                 "config": "",
                 "params": {
-                  "mode": "Listed",
-                  "type": "History",
-                  "limit": 10,
-                  "dataset": "XBL",
-                  "end_time": "",
-                  "ipaddress": "45.150.206.0/24",
-                  "start_time": ""
+                  "output_mode": "Return as a JSON"
                 },
                 "version": "1.0.0",
                 "connector": "spamhaus-feed",
@@ -584,18 +566,18 @@
               "top": "165",
               "left": "125",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "uuid": "eb12cc45-3408-4974-a109-a4c0fbddc74a"
+              "uuid": "80a48a4b-4b58-46c4-ac81-0639e8b7b709"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
               "name": "Start -> Fetch Indicators",
-              "targetStep": "/api/3/workflow_steps/eb12cc45-3408-4974-a109-a4c0fbddc74a",
+              "targetStep": "/api/3/workflow_steps/80a48a4b-4b58-46c4-ac81-0639e8b7b709",
               "sourceStep": "/api/3/workflow_steps/55f579c2-4c5e-4cf4-ab99-d9e03b4f258a",
               "label": null,
               "isExecuted": false,
-              "uuid": "57688fa1-c95b-430f-820f-866f6cb42af5"
+              "uuid": "2fd192e7-af00-48ec-9157-c8e23fe77691"
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
@@ -603,11 +585,11 @@
           "recordTags": [
             "spamhaus-feed"
           ],
-          "id": "605",
+          "id": "767",
           "createUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "createDate": 1646378684.938845,
-          "modifyUser": "/api/3/appliances/57545210-2adc-472b-a24f-2df6ee8dfe63",
-          "modifyDate": 1646378684.938845,
+          "createDate": 1647325838.873728,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1647325993.278559,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null
