@@ -38,10 +38,15 @@ MONTH_LIST = {
     'Dec': '-12-'
 }
 
+SERVICE = {
+    "Don't Route Or Peer": "https://www.spamhaus.org/drop/drop.txt",
+    "Extended Don't Route Or Peer": "https://www.spamhaus.org/drop/edrop.txt"
+}
+
 
 class SpamhausFeed(object):
     def __init__(self, config, *args, **kwargs):
-        self.url = config.get('service')
+        self.url = SERVICE.get(config.get('service'))
         self.sslVerify = config.get('verify_ssl')
 
     def make_rest_call(self, url, method):
@@ -88,25 +93,24 @@ def fetch_datetime(ip_blacklist):
             x = line.split(",")[1].split(" ")
             date_time = x[3] + MONTH_LIST.get(x[2]) + x[1] + "T" + x[4] + ".000Z"
             expires = convert_datetime_to_epoch(date_time)
+            break
     return last_modified, expires
 
 
 def fetch_indicators(config, params, **kwargs):
-    try:
-        sf = SpamhausFeed(config)
-        endpoint = ""
-        ip_blacklist_list = []
-        response = sf.make_rest_call(endpoint, 'GET')
-        if response:
-            ip_blacklist = str(response).split("\\n")
-            last_modified, expires = fetch_datetime(ip_blacklist)
-            for ip in ip_blacklist[4:-1]:
-                ip_type = ip.split(";")
-                ip_blacklist_list.append({'ip': ip_type[0].strip(), 'type': ip_type[1].strip(), 'last_modified': last_modified, 'expires': expires})
-            return ip_blacklist_list
-    except Exception as err:
-        logger.exception("{0}".format(str(err)))
-        raise ConnectorError("{0}".format(str(err)))
+    sf = SpamhausFeed(config)
+    endpoint = ""
+    ip_blacklist_list = []
+    response = sf.make_rest_call(endpoint, 'GET')
+    if response:
+        ip_blacklist = str(response).split("\\n")
+        last_modified, expires = fetch_datetime(ip_blacklist)
+        for ip in ip_blacklist[4:-1]:
+            ip_type = ip.split(";")
+            ip_blacklist_list.append(
+                {'ip': ip_type[0].strip(), 'type': ip_type[1].strip(), 'last_modified': last_modified,
+                 'expires': expires})
+        return ip_blacklist_list
 
 
 def _check_health(config):

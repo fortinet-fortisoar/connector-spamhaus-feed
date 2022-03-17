@@ -21,7 +21,4 @@ class SpamhausFeed(Connector):
             raise ConnectorError(str(err))
 
     def check_health(self, config):
-        try:
-            _check_health(config)
-        except Exception as e:
-            raise ConnectorError(e)
+        _check_health(config)

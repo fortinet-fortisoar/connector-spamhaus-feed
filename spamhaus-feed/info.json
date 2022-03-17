@@ -32,10 +32,10 @@
         "visible": true,
         "editable": true,
         "required": true,
-        "value": "https://www.spamhaus.org/drop/drop.txt",
+        "value": "Don't Route Or Peer",
         "options": [
-          "https://www.spamhaus.org/drop/drop.txt",
-          "https://www.spamhaus.org/drop/edrop.txt"
+          "Don't Route Or Peer",
+          "Extended Don't Route Or Peer"
         ]
       },
       {
