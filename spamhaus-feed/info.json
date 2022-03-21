@@ -1,0 +1,96 @@
+{
+  "name": "spamhaus-feed",
+  "version": "1.0.0",
+  "label": "Spamhaus Feed",
+  "category": "Threat Intelligence",
+  "description": "Spamhaus Feed provides access to expansive threat data and related information. This connector facilitates automated operations related to fetching the list of IPs blocklist.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "help_online": "",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "tags": [
+    "ThreatIntel"
+  ],
+  "ingestion_supported": true,
+  "ingestion_modes": [
+    "scheduled"
+  ],
+  "ingestion_preferences": {
+    "modules": [
+      "threat_intel_feeds"
+    ]
+  },
+  "configuration": {
+    "fields": [
+      {
+        "title": "Service",
+        "name": "service",
+        "description": "URL of the Spamhaus server to which you will connect and perform automated operations.",
+        "type": "select",
+        "visible": true,
+        "editable": true,
+        "required": true,
+        "value": "Don't Route Or Peer",
+        "options": [
+          "Don't Route Or Peer",
+          "Extended Don't Route Or Peer"
+        ]
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.\n By default, this option is set as True.",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "fetch_indicators",
+      "category": "investigation",
+      "annotation": "fetch_indicators",
+      "description": "Retrieves list of indicators from the Spamhaus feed based on the dataset, mode, ipaddress, and other input parameter you have specified.",
+      "title": "Fetch Indicators",
+      "parameters": [
+        {
+          "title": "Process response as",
+          "name": "output_mode",
+          "visible": true,
+          "required": false,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Create as Feed Records in FortiSOAR",
+            "Return as a JSON"
+          ],
+          "value": "Return as a JSON",
+          "tooltip": "The Feed Data can either be returned as a JSON, or Created as Feed Records in FortiSOAR",
+          "description": "The Feed Data can either be returned as a JSON, or Created as Feed Records in FortiSOAR",
+          "onchange": {
+            "Create as Feed Records in FortiSOAR": [
+              {
+                "title": "Record Creation Playbook IRI",
+                "description": "",
+                "type": "text",
+                "name": "create_pb_id",
+                "required": false,
+                "editable": true,
+                "visible": true
+              }
+            ],
+            "Return as a JSON": []
+          }
+        }
+      ],
+      "output_schema": [
+      ],
+      "enabled": true
+    }
+  ]
+}
