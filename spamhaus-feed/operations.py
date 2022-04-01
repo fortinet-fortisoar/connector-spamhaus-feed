@@ -39,8 +39,8 @@ MONTH_LIST = {
 }
 
 SERVICE = {
-    "Don't Route Or Peer": "https://www.spamhaus.org/drop/drop.txt",
-    "Extended Don't Route Or Peer": "https://www.spamhaus.org/drop/edrop.txt"
+    "Don't Route Or Peer (DROP)": "https://www.spamhaus.org/drop/drop.txt",
+    "Extended Don't Route Or Peer (EDROP)": "https://www.spamhaus.org/drop/edrop.txt"
 }
 
 

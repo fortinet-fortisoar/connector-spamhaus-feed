@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "label": "Spamhaus Feed",
   "category": "Threat Intelligence",
-  "description": "Spamhaus Feed provides access to expansive threat data and related information. This connector facilitates automated operations related to fetching the list of IPs blocklist.",
+  "description": "Spamhaus Feed provides access to expansive threat data and related information. This connector facilitates automated operations related to fetching the list of IPs blocklist. \\nThis connector has a dependency on the <a href=\\\"/content-hub/all-content/?contentType=solutionpack&amp;tag=ThreatIntelManagement\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">Threat Intel Management Solution Pack</a>. Install the Solution Pack before enabling ingestion of Threat Feeds from this source.",
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/spamhaus-feed/243/spamhaus-feed-v1-0-0",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "tags": [
@@ -27,21 +27,21 @@
       {
         "title": "Service",
         "name": "service",
-        "description": "URL of the Spamhaus server to which you will connect and perform automated operations.",
+        "description": "Review and select the URL of the Spamhaus Feed service to which you will connect and retrieve data. You can choose between https://www.spamhaus.org/drop/drop.txt or https://www.spamhaus.org/drop/edrop.txt.",
         "type": "select",
         "visible": true,
         "editable": true,
         "required": true,
-        "value": "Don't Route Or Peer",
+        "value": "Don't Route Or Peer (DROP)",
         "options": [
-          "Don't Route Or Peer",
-          "Extended Don't Route Or Peer"
+          "Don't Route Or Peer (DROP)",
+          "Extended Don't Route Or Peer (EDROP)"
         ]
       },
       {
         "title": "Verify SSL",
         "name": "verify_ssl",
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not.\n By default, this option is set as True.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not.",
         "type": "checkbox",
         "required": false,
         "editable": true,
@@ -55,7 +55,7 @@
       "operation": "fetch_indicators",
       "category": "investigation",
       "annotation": "fetch_indicators",
-      "description": "Retrieves list of indicators from the Spamhaus feed based on the dataset, mode, ipaddress, and other input parameter you have specified.",
+      "description": "Retrieves a list of all indicators from Spamhaus Feed.",
       "title": "Fetch Indicators",
       "parameters": [
         {
@@ -70,13 +70,13 @@
             "Return as a JSON"
           ],
           "value": "Return as a JSON",
-          "tooltip": "The Feed Data can either be returned as a JSON, or Created as Feed Records in FortiSOAR",
-          "description": "The Feed Data can either be returned as a JSON, or Created as Feed Records in FortiSOAR",
+          "tooltip": "Select the method of returning the Feed Data information. You can choose between the data being created as \"Feed records\" in FortiSOAR (the Create as Feed Records in FortiSOAR option) or data being returned in the JSON format (the Return as a JSON option).",
+          "description": "Select the method of returning the Feed Data information. You can choose between the data being created as \"Feed records\" in FortiSOAR (the Create as Feed Records in FortiSOAR option) or data being returned in the JSON format (the Return as a JSON option).",
           "onchange": {
             "Create as Feed Records in FortiSOAR": [
               {
                 "title": "Record Creation Playbook IRI",
-                "description": "",
+                "description": "If you choose the 'Create as Feed Records in FortiSOAR' option, then in the Record Creation Playbook IRI field, specify the IRI of the playbook that creates feed records in FortiSOAR.",
                 "type": "text",
                 "name": "create_pb_id",
                 "required": false,
@@ -89,6 +89,12 @@
         }
       ],
       "output_schema": [
+        {
+          "ip": "",
+          "type": "",
+          "last_modified": "",
+          "expires": ""
+        }
       ],
       "enabled": true
     }
