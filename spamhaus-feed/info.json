@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "label": "Spamhaus Feed",
   "category": "Threat Intelligence",
-  "description": "Spamhaus Feed provides access to expansive threat data and related information. This connector facilitates automated operations related to fetching the list of IPs blocklist. This connector has a dependency on the <a href=\"/content-hub/all-content/?contentType=solutionpack&amp;tag=ThreatIntelManagement\" target=\"_blank\" rel=\"noopener\">Threat Intel Management Solution Pack</a>. Install the Solution Pack before enabling ingestion of Threat Feeds from this source.",
+  "description": "Spamhaus Feed provides access to expansive threat data and related information. This connector facilitates automated operations related to fetching the list of IPs blocklist.<br/><br/>This connector has a dependency on the <a href=\"/content-hub/all-content/?contentType=solutionpack&amp;tag=ThreatIntelManagement\" target=\"_blank\" rel=\"noopener\">Threat Intel Management Solution Pack</a>. Install the Solution Pack before enabling ingestion of Threat Feeds from this source.",
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
